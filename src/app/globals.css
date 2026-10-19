@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
+/* 디자인 토큰: DESIGN.md 기반, 상태 색상은 PRD 6장 규칙이 우선 */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #181d26;
+  --body: #333840;
+  --muted: #41454d;
+  --hairline: #dddddd;
+  --surface-soft: #f8fafc;
+  --surface-strong: #e0e2e6;
+  --primary: #181d26;
+  --primary-active: #0d1218;
+  --link: #1b61c9;
+  --info-border: #458fff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-strong: var(--surface-strong);
+  --color-primary: var(--primary);
+  --color-primary-active: var(--primary-active);
+  --color-link: var(--link);
+  --color-info-border: var(--info-border);
+
+  /* 상태 색상 의미 고정: 정상(초록) 주의(주황) 위험(빨강) 데모(회색) */
+  --color-status-ok: #006400;
+  --color-status-ok-bg: #e6f4e6;
+  --color-status-warn: #b45309;
+  --color-status-warn-bg: #fff1e0;
+  --color-status-danger: #b42318;
+  --color-status-danger-bg: #fde8e6;
+  --color-status-demo: #4b5563;
+  --color-status-demo-bg: #e5e7eb;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 16px;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--body);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--info-border);
+  outline-offset: 2px;
 }
